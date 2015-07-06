@@ -1,4 +1,13 @@
+require 'api_constraints'
 Rails.application.routes.draw do
+#MarketPlaceApi::Application.routes.draw do
+  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
+    scope module: :v1,
+      constraints: ApiConstraints.new(version: 1, default: true) do #scoped by the url - http://api.marketplace.dev/v1/products/1
+
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
