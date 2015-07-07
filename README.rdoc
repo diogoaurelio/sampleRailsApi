@@ -27,8 +27,13 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-## Dev Env
-### http://pow.cx/
-> cd ~/.pow
-> ln -s ~/workspace/market_place_api
+=== Dev Env
+==== http://pow.cx/
+* > cd ~/.pow
+* > ln -s ~/workspace/market_place_api
+
 http://market_place_api.dev/
+
+=== Testing endpoints with curl
+* >  curl -H 'Accept: application/vnd.marketplace.v1' \
+            http://api.market_place_api.dev/users/1
