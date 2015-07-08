@@ -1,5 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
 
+    #POST
     def create
       user_password = params[:session][:password]
       user_email = params[:session][:email]
@@ -13,7 +14,13 @@ class Api::V1::SessionsController < ApplicationController
       else
         render json: { errors: "Invalid email or password" }, status: 422
       end
-
     end
 
+    #DELETE
+    def destroy
+      user = User.find_by(auth_token: params[:id])
+      user.generate_authentication_token!
+      user.save
+      head 204
+    end
 end
