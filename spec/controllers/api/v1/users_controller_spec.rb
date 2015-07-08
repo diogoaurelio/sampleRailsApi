@@ -1,8 +1,9 @@
 require 'spec_helper'
 #bundle exec rspec spec/controllers/api/v1/users_controller_spec.rb
 describe Api::V1::UsersController do
-  before(:each) { request.headers['Accept'] = "application/vnd.marketplace.v1, #{ Mime::JSON }" }
-  before(:each) { request.headers['Content-Type'] = Mime::JSON.to_s }
+  #After adding the support/request_helpers, can comment the next 2 lines (before(:each)):
+  #before(:each) { request.headers['Accept'] = "application/vnd.marketplace.v1, #{ Mime::JSON }" }
+  #before(:each) { request.headers['Content-Type'] = Mime::JSON.to_s }
   describe 'GET #show' do
     before(:each) do
       @user = FactoryGirl.create :user
