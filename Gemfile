@@ -46,6 +46,13 @@ group :test do
 
 end
 
+#optimizing working with apis
+gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
+#gem 'compass-rails'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+gem 'furatto'
+gem 'font-awesome-rails'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
