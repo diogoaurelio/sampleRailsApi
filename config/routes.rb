@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       constraints: ApiConstraints.new(version: 1, default: true) do #scoped by the url - http://api.marketplace.dev/v1/products/1
         resources :users, :only => [:show, :create, :update, :destroy]
         resources :sessions, :only => [:create, :destroy]
+        resources :products, :only => [:show, :index]
     end
   end
 

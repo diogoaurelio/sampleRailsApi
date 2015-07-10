@@ -24,8 +24,8 @@ SabisuRails.setup do |config|
 
   # Resources on the api
   # config.resources = [:products, :users...]
-  config.resources = [:users]
-  
+  config.resources = [:users, :products]
+
   # Application name
   # mattr_accessor :app_name
   # @@app_name = Rails.application.class.parent_name
