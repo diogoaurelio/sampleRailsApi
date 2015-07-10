@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
     end while self.class.exists?(auth_token: auth_token)
   end
 
+  has_many :products, dependent: :destroy
+
 end
