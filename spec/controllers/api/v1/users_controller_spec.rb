@@ -49,9 +49,13 @@ describe Api::V1::UsersController do
   end #describe
 
   describe "PATCH #UPDATE" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      #request.headers['Authorization'] = @user.auth_token #optimized in request_helpers with a method
+      api_authorization_header @user.auth_token
+    end
     context "when it is successfully created" do
       before(:each) do
-        @user = FactoryGirl.create :user
         patch :update, { id: @user.id, user: { email: "newmail@example.com" } }#, format: :json #not needed because Mime added in Request Headers
       end
       it 'renders the json representation of the updated user' do
@@ -85,7 +89,8 @@ describe Api::V1::UsersController do
   describe "DELETE #Destroy" do
     before(:each) do
       @user = FactoryGirl.create :user
-      delete :destroy, { id: @user.id }#, format: :json #not needed because Mime added in Request Headers
+      api_authorization_header @user.auth_token
+      delete :destroy, { id: @user.auth_token }#, format: :json #not needed because Mime added in Request Headers
     end
     it { should respond_with 200 }
 
