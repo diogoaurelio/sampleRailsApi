@@ -38,12 +38,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "devise"
 
-group :test do
-  gem "rspec-rails", "~> 2.14"
+group :development, :test do
   gem "factory_girl_rails"
   gem 'ffaker'
-  gem "shoulda-matchers"
+end
 
+group :test do
+  gem "rspec-rails"
+  gem "shoulda-matchers"
 end
 
 #optimizing working with apis
