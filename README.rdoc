@@ -37,3 +37,8 @@ http://market_place_api.dev/
 === Testing endpoints with curl
 * >  curl -H 'Accept: application/vnd.marketplace.v1' \
             http://api.market_place_api.dev/users/1
+
+rake db:migrate
+ rake db:test:prepare
+
+20.times { FactoryGirl.create :product }
