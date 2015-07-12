@@ -10,7 +10,7 @@ describe Api::V1::UsersController do
       get :show, id: @user.id#, format: :json #not needed because Mime added in Request Headers
     end
     it 'returns the information about a reporter on a hash' do
-      user_response = json_response
+      user_response = json_response[:user]
       expect(user_response[:email]).to eql @user.email
     end
     it { should respond_with 200 }
@@ -23,7 +23,7 @@ describe Api::V1::UsersController do
         post :create, { user: @user_attributes }#, format: :json #not needed because Mime added in Request Headers
       end
       it 'renders the json representation for the user record just created' do
-        user_response = json_response
+        user_response = json_response[:user]
         expect(user_response[:email]).to eql @user_attributes[:email]
       end
       it { should respond_with 201 }
@@ -59,7 +59,7 @@ describe Api::V1::UsersController do
         patch :update, { id: @user.id, user: { email: "newmail@example.com" } }#, format: :json #not needed because Mime added in Request Headers
       end
       it 'renders the json representation of the updated user' do
-        user_response = json_response
+        user_response = json_response[:user]
         expect(user_response[:email]).to eql "newmail@example.com"
       end
 
